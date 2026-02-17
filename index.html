@@ -35,10 +35,8 @@
         body::before {
             content: '';
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             background: 
                 linear-gradient(90deg, rgba(255, 45, 149, 0.03) 1px, transparent 1px),
                 linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px);
@@ -55,10 +53,8 @@
         body::after {
             content: '';
             position: fixed;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
             background: 
                 radial-gradient(circle at 30% 20%, rgba(255, 45, 149, 0.15) 0%, transparent 40%),
                 radial-gradient(circle at 70% 80%, rgba(0, 240, 255, 0.12) 0%, transparent 40%),
@@ -115,7 +111,6 @@
             font-family: 'JetBrains Mono', monospace;
             color: var(--neon-cyan);
             font-size: 0.95rem;
-            font-weight: 400;
             letter-spacing: 0.15em;
             text-transform: uppercase;
             opacity: 0.9;
@@ -155,8 +150,7 @@
         .main-container::after {
             content: '';
             position: absolute;
-            width: 80px;
-            height: 80px;
+            width: 80px; height: 80px;
             border: 2px solid var(--neon-pink);
             opacity: 0.5;
             z-index: 0;
@@ -164,18 +158,14 @@
         }
 
         .main-container::before {
-            top: 0;
-            left: 0;
-            border-right: none;
-            border-bottom: none;
+            top: 0; left: 0;
+            border-right: none; border-bottom: none;
             border-top-left-radius: 20px;
         }
 
         .main-container::after {
-            bottom: 0;
-            right: 0;
-            border-left: none;
-            border-top: none;
+            bottom: 0; right: 0;
+            border-left: none; border-top: none;
             border-bottom-right-radius: 20px;
             border-color: var(--neon-cyan);
             box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
@@ -189,15 +179,6 @@
             border: 1px solid rgba(255, 45, 149, 0.2);
         }
 
-        .instructions-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
         .instructions-title {
             font-family: 'Orbitron', sans-serif;
             font-weight: 700;
@@ -205,6 +186,7 @@
             color: var(--neon-pink);
             text-transform: uppercase;
             letter-spacing: 0.05em;
+            margin-bottom: 1rem;
         }
 
         .instructions-text {
@@ -215,6 +197,118 @@
             opacity: 0.9;
         }
 
+        /* ── Energy Score Panel ── */
+        .energy-panel {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: rgba(0, 240, 255, 0.04);
+            border-radius: 12px;
+            border: 1px solid rgba(0, 240, 255, 0.25);
+        }
+
+        .energy-title {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--neon-cyan);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .energy-title::before {
+            content: '⚡';
+        }
+
+        .energy-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .stat-card {
+            background: rgba(13, 2, 33, 0.6);
+            border-radius: 10px;
+            padding: 1rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.07);
+        }
+
+        .stat-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--light);
+            opacity: 0.55;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.4rem;
+        }
+
+        .stat-value {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+        }
+
+        .stat-value.lit    { color: #FFD700; }
+        .stat-value.dark   { color: #888; }
+        .stat-value.score  { color: var(--neon-cyan); }
+
+        /* Bar */
+        .energy-bar-wrap {
+            margin-bottom: 0.6rem;
+        }
+
+        .energy-bar-label {
+            display: flex;
+            justify-content: space-between;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--light);
+            opacity: 0.6;
+            margin-bottom: 0.4rem;
+        }
+
+        .energy-bar-track {
+            width: 100%;
+            height: 14px;
+            background: rgba(255,255,255,0.07);
+            border-radius: 99px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .energy-bar-fill {
+            height: 100%;
+            border-radius: 99px;
+            transition: width 0.4s cubic-bezier(.4,0,.2,1), background 0.4s;
+            background: linear-gradient(90deg, #00c853, #FFD700, #FF2D95);
+        }
+
+        /* Rating badge */
+        .energy-rating {
+            margin-top: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.8rem 1rem;
+            border-radius: 8px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            transition: all 0.4s;
+        }
+
+        .energy-rating.excellent { background: rgba(0,200,83,0.15);  border: 1px solid rgba(0,200,83,0.4);  color: #00c853; }
+        .energy-rating.good      { background: rgba(0,240,255,0.1);  border: 1px solid rgba(0,240,255,0.3); color: var(--neon-cyan); }
+        .energy-rating.moderate  { background: rgba(255,215,0,0.1);  border: 1px solid rgba(255,215,0,0.3); color: #FFD700; }
+        .energy-rating.high      { background: rgba(255,45,149,0.1); border: 1px solid rgba(255,45,149,0.3);color: var(--neon-pink); }
+
         footer {
             text-align: center;
             margin-top: 3rem;
@@ -224,254 +318,310 @@
             opacity: 0.5;
         }
 
-        #root {
-            position: relative;
-            z-index: 1;
+        @media (max-width: 968px) {
+            .widget-grid { grid-template-columns: 1fr !important; }
+            .energy-stats { grid-template-columns: repeat(3, 1fr); }
         }
 
-        @media (max-width: 968px) {
-            .widget-grid {
-                grid-template-columns: 1fr !important;
-            }
+        @media (max-width: 480px) {
+            .energy-stats { grid-template-columns: 1fr 1fr; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="subtitle">STEAM Challenge 2026</div>
-            <h1 class="logo">Lights Out</h1>
-            <div class="challenge-name">Binary Art Challenge</div>
-        </header>
+<div class="container">
 
-        <div class="main-container">
-            <div class="instructions-section">
-                <div class="instructions-header">
-                    <h2 class="instructions-title">Challenge Instructions</h2>
-                </div>
-                <div class="instructions-text" id="instructionsText">
-                    Make a 3x5 letter 'A'. The widget is setup with the incorrect dimensions. You'll need to use the sliders to set the correct dimensions before you start entering the pixel data.
-                </div>
+    <header>
+        <div class="subtitle">STEAM Challenge 2026</div>
+        <h1 class="logo">Lights Out</h1>
+        <div class="challenge-name">Binary Art Challenge</div>
+    </header>
+
+    <div class="main-container">
+
+        <!-- Instructions -->
+        <div class="instructions-section">
+            <h2 class="instructions-title">Challenge Instructions</h2>
+            <p class="instructions-text">
+                <strong>First Challenge:</strong> Make a 3x5 letter 'A'. The widget is setup with the incorrect
+                dimensions. You'll need to use the sliders to set the correct dimensions before you start
+                entering the pixel data.
+            </p>
+        </div>
+
+        <!-- Widget -->
+        <div class="widget-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:2rem; align-items:start;">
+
+            <!-- Canvas -->
+            <div style="background:rgba(0,0,0,0.3); padding:2rem; border-radius:12px; display:flex; justify-content:center; align-items:center; border:2px solid rgba(184,79,255,0.3); box-shadow:inset 0 0 20px rgba(0,0,0,0.5);">
+                <canvas id="pixelCanvas" style="image-rendering:pixelated; border:2px solid rgba(255,45,149,0.3); border-radius:4px; box-shadow:0 4px 20px rgba(0,0,0,0.5);"></canvas>
             </div>
 
-            <div id="root">
-                <div class="widget-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start;">
-                    <div class="grid-container" style="background: rgba(0, 0, 0, 0.3); padding: 2rem; border-radius: 12px; display: flex; justify-content: center; align-items: center; border: 2px solid rgba(184, 79, 255, 0.3); box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);">
-                        <canvas id="pixelCanvas" style="image-rendering: pixelated; border: 2px solid rgba(255, 45, 149, 0.3); border-radius: 4px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);"></canvas>
-                    </div>
+            <!-- Controls -->
+            <div style="display:flex; flex-direction:column; gap:1.5rem;">
 
-                    <div class="controls" style="display: flex; flex-direction: column; gap: 1.5rem;">
-                        <div class="slider-group">
-                            <label style="font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; color: #F0F4FF; display: flex; flex-direction: column; gap: 0.5rem;">
-                                Image Width
-                                <input type="range" id="widthSlider" min="3" max="30" value="10" style="width: 100%; height: 8px; border-radius: 4px; background: linear-gradient(90deg, #FF2D95, #00F0FF); outline: none; cursor: pointer;">
-                                <span id="widthValue" style="font-family: 'Orbitron', sans-serif; font-size: 1.5rem; color: #00F0FF; text-align: center; font-weight: 700;">10</span>
-                            </label>
-                        </div>
+                <!-- Width -->
+                <label style="font-family:'JetBrains Mono',monospace; font-size:0.9rem; color:#F0F4FF; display:flex; flex-direction:column; gap:0.5rem;">
+                    Image Width
+                    <input type="range" id="widthSlider" min="3" max="30" value="10"
+                        style="width:100%; height:8px; border-radius:4px; background:linear-gradient(90deg,#FF2D95,#00F0FF); outline:none; cursor:pointer;">
+                    <span id="widthValue" style="font-family:'Orbitron',sans-serif; font-size:1.5rem; color:#00F0FF; text-align:center; font-weight:700;">10</span>
+                </label>
 
-                        <div class="slider-group">
-                            <label style="font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; color: #F0F4FF; display: flex; flex-direction: column; gap: 0.5rem;">
-                                Image Height
-                                <input type="range" id="heightSlider" min="3" max="30" value="10" style="width: 100%; height: 8px; border-radius: 4px; background: linear-gradient(90deg, #FF2D95, #00F0FF); outline: none; cursor: pointer;">
-                                <span id="heightValue" style="font-family: 'Orbitron', sans-serif; font-size: 1.5rem; color: #00F0FF; text-align: center; font-weight: 700;">10</span>
-                            </label>
-                        </div>
+                <!-- Height -->
+                <label style="font-family:'JetBrains Mono',monospace; font-size:0.9rem; color:#F0F4FF; display:flex; flex-direction:column; gap:0.5rem;">
+                    Image Height
+                    <input type="range" id="heightSlider" min="3" max="30" value="10"
+                        style="width:100%; height:8px; border-radius:4px; background:linear-gradient(90deg,#FF2D95,#00F0FF); outline:none; cursor:pointer;">
+                    <span id="heightValue" style="font-family:'Orbitron',sans-serif; font-size:1.5rem; color:#00F0FF; text-align:center; font-weight:700;">10</span>
+                </label>
 
-                        <div class="radio-group" style="display: flex; gap: 2rem; padding: 1rem; background: rgba(0, 240, 255, 0.05); border-radius: 8px; border: 1px solid rgba(0, 240, 255, 0.2);">
-                            <label style="font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; color: #F0F4FF; display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
-                                <input type="radio" name="mode" value="binary" checked style="width: 18px; height: 18px; cursor: pointer;">
-                                Binary
-                            </label>
-                            <label style="font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; color: #F0F4FF; display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
-                                <input type="radio" name="mode" value="hexadecimal" style="width: 18px; height: 18px; cursor: pointer;">
-                                Hexadecimal
-                            </label>
-                        </div>
-
-                        <textarea id="binaryInput" placeholder="0000000000&#10;0000000000&#10;0000000000&#10;0000000000&#10;0000000000&#10;0000000000&#10;0000000000&#10;0000000000&#10;0000000000&#10;0000000000" spellcheck="false" style="width: 100%; min-height: 200px; padding: 1rem; background: rgba(13, 2, 33, 0.8); border: 2px solid rgba(184, 79, 255, 0.3); border-radius: 8px; color: #F0F4FF; font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; line-height: 1.6; resize: vertical; outline: none;"></textarea>
-
-                        <button id="saveBtn" style="padding: 1rem 2rem; background: linear-gradient(135deg, #00F0FF, #B84FFF); color: white; border: none; border-radius: 8px; font-family: 'Orbitron', sans-serif; font-size: 1rem; font-weight: 700; cursor: pointer; text-transform: uppercase; letter-spacing: 0.1em; transition: all 0.3s; box-shadow: 0 4px 15px rgba(0, 240, 255, 0.3);">
-                            Save Image
-                        </button>
-
-                        <div style="padding: 1rem; background: rgba(255, 45, 149, 0.05); border-radius: 8px; border: 1px solid rgba(255, 45, 149, 0.2);">
-                            <p style="font-family: 'Work Sans', sans-serif; font-size: 0.85rem; color: #F0F4FF; opacity: 0.8; margin-bottom: 0.5rem;">💡 Enter binary code for each row</p>
-                            <p style="font-family: 'Work Sans', sans-serif; font-size: 0.85rem; color: #F0F4FF; opacity: 0.8; margin-bottom: 0.5rem;">1 = White pixel | 0 = Black pixel</p>
-                            <p style="font-family: 'Work Sans', sans-serif; font-size: 0.85rem; color: #F0F4FF; opacity: 0.8; margin-bottom: 0.5rem;">Pink = Default (no code)</p>
-                        </div>
-                    </div>
+                <!-- Mode -->
+                <div style="display:flex; gap:2rem; padding:1rem; background:rgba(0,240,255,0.05); border-radius:8px; border:1px solid rgba(0,240,255,0.2);">
+                    <label style="font-family:'JetBrains Mono',monospace; font-size:0.9rem; color:#F0F4FF; display:flex; align-items:center; gap:0.5rem; cursor:pointer;">
+                        <input type="radio" name="mode" value="binary" checked style="width:18px; height:18px; cursor:pointer;">
+                        Binary
+                    </label>
+                    <label style="font-family:'JetBrains Mono',monospace; font-size:0.9rem; color:#F0F4FF; display:flex; align-items:center; gap:0.5rem; cursor:pointer;">
+                        <input type="radio" name="mode" value="hexadecimal" style="width:18px; height:18px; cursor:pointer;">
+                        Hexadecimal
+                    </label>
                 </div>
+
+                <!-- Binary Input -->
+                <textarea id="binaryInput" spellcheck="false"
+                    style="width:100%; min-height:200px; padding:1rem; background:rgba(13,2,33,0.8); border:2px solid rgba(184,79,255,0.3); border-radius:8px; color:#F0F4FF; font-family:'JetBrains Mono',monospace; font-size:0.9rem; line-height:1.6; resize:vertical; outline:none;"></textarea>
+
+                <!-- Save -->
+                <button id="saveBtn"
+                    style="padding:1rem 2rem; background:linear-gradient(135deg,#00F0FF,#B84FFF); color:white; border:none; border-radius:8px; font-family:'Orbitron',sans-serif; font-size:1rem; font-weight:700; cursor:pointer; text-transform:uppercase; letter-spacing:0.1em; transition:all 0.3s; box-shadow:0 4px 15px rgba(0,240,255,0.3);">
+                    ⬇ Download Image
+                </button>
+
+                <!-- Hint -->
+                <div style="padding:1rem; background:rgba(255,45,149,0.05); border-radius:8px; border:1px solid rgba(255,45,149,0.2);">
+                    <p style="font-family:'Work Sans',sans-serif; font-size:0.85rem; color:#F0F4FF; opacity:0.8; margin-bottom:0.4rem;">💡 Enter binary code for each row — one row per line</p>
+                    <p style="font-family:'Work Sans',sans-serif; font-size:0.85rem; color:#F0F4FF; opacity:0.8; margin-bottom:0.4rem;"><span style="color:#FFD700;">1</span> = White (lit pixel) &nbsp;|&nbsp; <span style="color:#888;">0</span> = Black (off pixel)</p>
+                    <p style="font-family:'Work Sans',sans-serif; font-size:0.85rem; color:#F0F4FF; opacity:0.8;">🌸 Pink = empty / no code entered yet</p>
+                </div>
+
             </div>
         </div>
 
-        <footer>
-            <p>STEAM Challenge 2026 | Built with ❤️ for Binary Art</p>
-        </footer>
-    </div>
+        <!-- ⚡ Energy Score Panel -->
+        <div class="energy-panel">
+            <div class="energy-title">Energy Score</div>
 
-    <script>
-        // Binary Pixel Widget Logic
-        let width = 10;
-        let height = 10;
-        let mode = 'binary';
-        let grid = [];
+            <div class="energy-stats">
+                <div class="stat-card">
+                    <div class="stat-label">Lit Pixels (1s)</div>
+                    <div class="stat-value lit" id="litCount">0</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Dark Pixels (0s)</div>
+                    <div class="stat-value dark" id="darkCount">0</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Energy Score</div>
+                    <div class="stat-value score" id="energyScore">0%</div>
+                </div>
+            </div>
 
-        const canvas = document.getElementById('pixelCanvas');
-        const ctx = canvas.getContext('2d');
-        const widthSlider = document.getElementById('widthSlider');
-        const heightSlider = document.getElementById('heightSlider');
-        const widthValue = document.getElementById('widthValue');
-        const heightValue = document.getElementById('heightValue');
-        const binaryInput = document.getElementById('binaryInput');
-        const saveBtn = document.getElementById('saveBtn');
-        const modeRadios = document.querySelectorAll('input[name="mode"]');
+            <div class="energy-bar-wrap">
+                <div class="energy-bar-label">
+                    <span>Low Energy ✅</span>
+                    <span>High Energy ⚠️</span>
+                </div>
+                <div class="energy-bar-track">
+                    <div class="energy-bar-fill" id="energyBar" style="width:0%;"></div>
+                </div>
+            </div>
 
-        function initGrid() {
-            grid = Array(height).fill(null).map(() => 
-                Array(width).fill('#FFB6D9') // Pink default
-            );
-            updatePlaceholder();
-        }
+            <div class="energy-rating good" id="energyRating">
+                <span id="energyEmoji">💤</span>
+                <span id="energyLabel">Enter your binary code above to see your energy score!</span>
+            </div>
+        </div>
 
-        function updatePlaceholder() {
-            const lines = [];
-            for (let i = 0; i < height; i++) {
-                lines.push('0'.repeat(width));
-            }
-            binaryInput.placeholder = lines.join('\n');
-        }
+    </div><!-- /.main-container -->
 
-        function drawGrid() {
-            const cellSize = 30;
-            canvas.width = width * cellSize;
-            canvas.height = height * cellSize;
+    <footer>
+        <p>FXC STEAM Challenge 2026 | Built with ❤️ for Binary Art</p>
+    </footer>
 
-            grid.forEach((row, y) => {
-                row.forEach((color, x) => {
-                    ctx.fillStyle = color;
-                    ctx.fillRect(x * cellSize, y * cellSize, cellSize, cellSize);
-                    
-                    ctx.strokeStyle = '#333';
-                    ctx.lineWidth = 1;
-                    ctx.strokeRect(x * cellSize, y * cellSize, cellSize, cellSize);
-                });
+</div><!-- /.container -->
+
+<script>
+    let width = 10, height = 10, mode = 'binary', grid = [];
+
+    const canvas      = document.getElementById('pixelCanvas');
+    const ctx         = canvas.getContext('2d');
+    const widthSlider = document.getElementById('widthSlider');
+    const heightSlider= document.getElementById('heightSlider');
+    const widthValue  = document.getElementById('widthValue');
+    const heightValue = document.getElementById('heightValue');
+    const binaryInput = document.getElementById('binaryInput');
+    const saveBtn     = document.getElementById('saveBtn');
+    const modeRadios  = document.querySelectorAll('input[name="mode"]');
+
+    // Energy score elements
+    const litCountEl    = document.getElementById('litCount');
+    const darkCountEl   = document.getElementById('darkCount');
+    const energyScoreEl = document.getElementById('energyScore');
+    const energyBarEl   = document.getElementById('energyBar');
+    const energyRatingEl= document.getElementById('energyRating');
+    const energyEmojiEl = document.getElementById('energyEmoji');
+    const energyLabelEl = document.getElementById('energyLabel');
+
+    function initGrid() {
+        grid = Array(height).fill(null).map(() => Array(width).fill('#FFB6D9'));
+        updatePlaceholder();
+    }
+
+    function updatePlaceholder() {
+        binaryInput.placeholder = Array(height).fill('0'.repeat(width)).join('\n');
+    }
+
+    function drawGrid() {
+        const cell = 30;
+        canvas.width  = width  * cell;
+        canvas.height = height * cell;
+        grid.forEach((row, y) => {
+            row.forEach((color, x) => {
+                ctx.fillStyle = color;
+                ctx.fillRect(x * cell, y * cell, cell, cell);
+                ctx.strokeStyle = '#333';
+                ctx.lineWidth = 1;
+                ctx.strokeRect(x * cell, y * cell, cell, cell);
             });
+        });
+    }
+
+    function updateEnergyScore() {
+        const totalPixels = width * height;
+        let litPixels = 0;
+
+        grid.forEach(row => {
+            row.forEach(color => {
+                if (color === '#FFFFFF') litPixels++;
+            });
+        });
+
+        const darkPixels = totalPixels - litPixels;
+        // Only count coded pixels (white or black) for percentage — pink = not entered yet
+        const codedPixels = grid.flat().filter(c => c === '#FFFFFF' || c === '#000000').length;
+        const pct = codedPixels === 0 ? 0 : Math.round((litPixels / codedPixels) * 100);
+
+        litCountEl.textContent    = litPixels;
+        darkCountEl.textContent   = darkPixels;
+        energyScoreEl.textContent = pct + '%';
+        energyBarEl.style.width   = pct + '%';
+
+        // Rating
+        energyRatingEl.className = 'energy-rating';
+        if (codedPixels === 0) {
+            energyRatingEl.classList.add('good');
+            energyEmojiEl.textContent = '💤';
+            energyLabelEl.textContent = 'Enter your binary code above to see your energy score!';
+        } else if (pct <= 25) {
+            energyRatingEl.classList.add('excellent');
+            energyEmojiEl.textContent = '🏆';
+            energyLabelEl.textContent = 'Excellent! ' + pct + '% brightness — very low energy use!';
+        } else if (pct <= 50) {
+            energyRatingEl.classList.add('good');
+            energyEmojiEl.textContent = '✅';
+            energyLabelEl.textContent = 'Good job! ' + pct + '% brightness — efficient design.';
+        } else if (pct <= 75) {
+            energyRatingEl.classList.add('moderate');
+            energyEmojiEl.textContent = '⚠️';
+            energyLabelEl.textContent = 'Moderate: ' + pct + '% brightness — try turning more pixels off!';
+        } else {
+            energyRatingEl.classList.add('high');
+            energyEmojiEl.textContent = '🔴';
+            energyLabelEl.textContent = 'High energy! ' + pct + '% brightness — most of your pixels are lit.';
         }
+    }
 
-        function updateGrid() {
-            const input = binaryInput.value;
-            
-            if (!input.trim()) {
-                initGrid();
-                drawGrid();
-                return;
-            }
+    function updateGrid() {
+        const input = binaryInput.value;
+        grid = Array(height).fill(null).map(() => Array(width).fill('#FFB6D9'));
 
-            const lines = input.split('\n');
-            grid = Array(height).fill(null).map(() => 
-                Array(width).fill('#FFB6D9')
-            );
-
-            lines.forEach((line, rowIndex) => {
+        if (input.trim()) {
+            input.split('\n').forEach((line, rowIndex) => {
                 if (rowIndex >= height) return;
-                
-                const cleanLine = line.trim();
-                
+                const clean = line.trim();
                 if (mode === 'binary') {
-                    for (let i = 0; i < Math.min(cleanLine.length, width); i++) {
-                        if (cleanLine[i] === '1') {
-                            grid[rowIndex][i] = '#FFFFFF';
-                        } else if (cleanLine[i] === '0') {
-                            grid[rowIndex][i] = '#000000';
-                        }
+                    for (let i = 0; i < Math.min(clean.length, width); i++) {
+                        if (clean[i] === '1') grid[rowIndex][i] = '#FFFFFF';
+                        else if (clean[i] === '0') grid[rowIndex][i] = '#000000';
                     }
                 } else {
-                    const hexValue = cleanLine.replace(/^0x/i, '');
-                    const decimal = parseInt(hexValue, 16);
-                    if (!isNaN(decimal)) {
-                        const binaryStr = decimal.toString(2).padStart(width, '0');
+                    const dec = parseInt(clean.replace(/^0x/i, ''), 16);
+                    if (!isNaN(dec)) {
+                        const bin = dec.toString(2).padStart(width, '0');
                         for (let i = 0; i < width; i++) {
-                            if (binaryStr[i] === '1') {
-                                grid[rowIndex][i] = '#FFFFFF';
-                            } else {
-                                grid[rowIndex][i] = '#000000';
-                            }
+                            grid[rowIndex][i] = bin[i] === '1' ? '#FFFFFF' : '#000000';
                         }
                     }
                 }
             });
-
-            drawGrid();
         }
 
-        widthSlider.addEventListener('input', (e) => {
-            width = parseInt(e.target.value);
-            widthValue.textContent = width;
-            initGrid();
-            drawGrid();
-            updateGrid();
-        });
-
-        heightSlider.addEventListener('input', (e) => {
-            height = parseInt(e.target.value);
-            heightValue.textContent = height;
-            initGrid();
-            drawGrid();
-            updateGrid();
-        });
-
-        binaryInput.addEventListener('input', updateGrid);
-
-        modeRadios.forEach(radio => {
-            radio.addEventListener('change', (e) => {
-                mode = e.target.value;
-                updateGrid();
-            });
-        });
-
-        saveBtn.addEventListener('click', () => {
-            try {
-                // Create a temporary canvas with the actual pixel art (no grid lines)
-                const tempCanvas = document.createElement('canvas');
-                const tempCtx = tempCanvas.getContext('2d');
-                const cellSize = 30;
-                
-                tempCanvas.width = width * cellSize;
-                tempCanvas.height = height * cellSize;
-                
-                // Draw without grid lines for cleaner image
-                grid.forEach((row, y) => {
-                    row.forEach((color, x) => {
-                        tempCtx.fillStyle = color;
-                        tempCtx.fillRect(x * cellSize, y * cellSize, cellSize, cellSize);
-                    });
-                });
-                
-                // Convert to blob and download
-                tempCanvas.toBlob((blob) => {
-                    const url = URL.createObjectURL(blob);
-                    const link = document.createElement('a');
-                    link.href = url;
-                    link.download = 'binary-pixel-art-' + Date.now() + '.png';
-                    document.body.appendChild(link);
-                    link.click();
-                    document.body.removeChild(link);
-                    URL.revokeObjectURL(url);
-                }, 'image/png');
-            } catch (err) {
-                console.error('Save failed:', err);
-                alert('Failed to save image. Please try again.');
-            }
-        });
-
-        // Responsive design
-        if (window.innerWidth <= 968) {
-            document.querySelector('.widget-grid').style.gridTemplateColumns = '1fr';
-        }
-
-        // Initialize
-        initGrid();
         drawGrid();
-    </script>
+        updateEnergyScore();
+    }
+
+    widthSlider.addEventListener('input', e => {
+        width = parseInt(e.target.value);
+        widthValue.textContent = width;
+        initGrid(); updateGrid();
+    });
+
+    heightSlider.addEventListener('input', e => {
+        height = parseInt(e.target.value);
+        heightValue.textContent = height;
+        initGrid(); updateGrid();
+    });
+
+    binaryInput.addEventListener('input', updateGrid);
+
+    modeRadios.forEach(r => r.addEventListener('change', e => { mode = e.target.value; updateGrid(); }));
+
+    saveBtn.addEventListener('click', () => {
+        try {
+            const tmp = document.createElement('canvas');
+            const tc  = tmp.getContext('2d');
+            const cell = 30;
+            tmp.width  = width  * cell;
+            tmp.height = height * cell;
+            grid.forEach((row, y) => {
+                row.forEach((color, x) => {
+                    tc.fillStyle = color;
+                    tc.fillRect(x * cell, y * cell, cell, cell);
+                });
+            });
+            tmp.toBlob(blob => {
+                const url  = URL.createObjectURL(blob);
+                const link = document.createElement('a');
+                link.href  = url;
+                link.download = 'binary-pixel-art-' + Date.now() + '.png';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                URL.revokeObjectURL(url);
+            }, 'image/png');
+        } catch(err) {
+            alert('Download failed — try right-clicking the canvas and saving instead.');
+        }
+    });
+
+    if (window.innerWidth <= 968) {
+        document.querySelector('.widget-grid').style.gridTemplateColumns = '1fr';
+    }
+
+    initGrid();
+    drawGrid();
+    updateEnergyScore();
+</script>
 </body>
 </html>
